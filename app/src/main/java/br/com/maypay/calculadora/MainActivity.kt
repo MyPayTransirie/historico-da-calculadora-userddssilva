@@ -10,12 +10,17 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import kotlinx.android.synthetic.main.screen.*
 import kotlinx.android.synthetic.main.simple_cal_buttons.*
+import org.json.JSONArray
 import org.mariuszgromada.math.mxparser.Expression
+import org.json.JSONObject
 
 
 class MainActivity : AppCompatActivity() {
 
     private var historico = ArrayList<History>()
+    private var listStringHist = ArrayList<String>()
+    private var stringHistorico: String = ""
+    private var objArray = JSONArray()
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         // Inflate the menu to use in the action bar
@@ -44,15 +49,20 @@ class MainActivity : AppCompatActivity() {
                 var intent = Intent(this, HistActivity::class.java)
 
                 // sending a simple string
-                val title: String = "Histórico"
-                intent.putExtra("Title", title)
+                //intent.putExtra("stringHist", stringHistorico)
+
+                // sending an array string
+                //intent.putStringArrayListExtra("listStringHist", listStringHist)
 
                 // sending an instance of History class
-                val historic = History("13+4", "17")
-                intent.putExtra("Historic", historic)
+                //val historic = History("13+4", "17")
+                //intent.putExtra("Historic", historic)
 
                 // sending an array of Histories
-                intent.putExtra("Historics", this.historico)
+                //intent.putParcelableArrayListExtra("Historics", this.historico)
+
+                // sending an json
+                intent.putExtra("jsonArray", objArray.toString())
 
                 // start historic activity
                 startActivity(intent)
@@ -117,6 +127,22 @@ class MainActivity : AppCompatActivity() {
         val result = e.calculate().toString()
 
         // saving history
+        // salvando em uma string
+        this.stringHistorico = this.stringHistorico + expression +"="+result+";"
+
+        // salvando uma lista de strings
+        this.listStringHist.add(expression + "=" + result)
+
+        // salvando em um json
+        var obj = JSONObject()
+        obj.put("expression", expression)
+        obj.put("result", result)
+
+        // salvando em um array de json
+        this.objArray.put(obj)
+        println(this.objArray.toString())
+
+        // salvando em um array de historicos
         var hist = History(expression_calc = expression, result_calc = result)
         this.historico.add(hist)
         //---------------------

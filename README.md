@@ -30,16 +30,16 @@ Abaixo segue alguns passos sugeridos para criar a aplicação:
 
 | Passo | Descrição  | Completou? |
 | ----- | ---------- | ---------  |
-|   1  | Botão Histórico                       | **sim/não** |
-|   2  | Tela Histórico                        |            |
-|   3  | Listener iniciar tela                 |            |
-|   4  | Salvar histórico string ";"           |            |
-|   5  | Enviar histórico com string           |            |
-|   6  | Exibir histórico na tela 2            |            |
-|   7  | Enviar histórico como JSON            |            |
-|   8  | Enviar histórico como `Array<String>` |            |
-|   9  | Salvar histórico como `Historico`     |            |
-|   10 | Enviar histórico com `Parcelable`    |            |
+|   1  | Botão Histórico                       | **sim**    |
+|   2  | Tela Histórico                        | **sim**    |
+|   3  | Listener iniciar tela                 | **sim**    |
+|   4  | Salvar histórico string ";"           | **sim**    |
+|   5  | Enviar histórico com string           | **sim**    |
+|   6  | Exibir histórico na tela 2            | **sim**    |
+|   7  | Enviar histórico como JSON            | **sim**    |
+|   8  | Enviar histórico como `Array<String>` | **sim**    |
+|   9  | Salvar histórico como `Historico`     | **sim**    |
+|   10 | Enviar histórico com `Parcelable`     | **sim**    |
 
 ----------
 ## Dificuldades
